@@ -1,4 +1,12 @@
 import random
+
+# ==================== Gamemodes ====================
+# How to add a new gamemode?
+# 1. Create class, inherit from Gamemode
+# 2. Set title
+# 3. Implement makeTask() method: return String: task, int: result
+# 4. Add class to gamemodes list
+
 class Gamemode:
     title = "Gamemode"
     def makeTask():
@@ -34,7 +42,8 @@ class ThreeDigitSquaresWith5(Gamemode):
     def makeTask():
         a = 10 * random.randint(10, 99) + 5
         return str(a) + "²", a**2 # task, result
-    
+
+# ==================== Gamemodes list ====================
 gamemodes = [TwoDigitSquares,
              TwoDigitSquaresWith5,
              TwoDigitMultiply11,
