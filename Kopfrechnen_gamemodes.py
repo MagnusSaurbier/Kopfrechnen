@@ -37,6 +37,14 @@ class TwoDigitMultiply(Gamemode):
         b = random.randint(1, 99)
         return str(a) + " * " + str(b), a*b # task, result
     
+class TwoDigitMultiplySameTen(Gamemode):
+    title = "2-digit multiply same ten-digit"
+    def makeTask():
+        t = random.randint(1, 9)
+        a = 10*t + random.randint(1, 9)
+        b = 10*t + random.randint(1, 9)
+        return str(a) + " * " + str(b), a*b # task, result
+    
 class ThreeDigitSquaresWith5(Gamemode):
     title = "3-digit squares with 5"
     def makeTask():
@@ -47,6 +55,7 @@ class ThreeDigitSquaresWith5(Gamemode):
 gamemodes = [TwoDigitSquares,
              TwoDigitSquaresWith5,
              TwoDigitMultiply11,
+             TwoDigitMultiplySameTen,
              TwoDigitMultiply,
              ThreeDigitSquaresWith5,
             ]
