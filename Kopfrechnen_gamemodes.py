@@ -104,6 +104,14 @@ class RandomizedAddition(Addition):
         sizes = [random.randint(1, 5) for i in range(nNumbers)]
         numbers = [random.randint(10**(sizes[i]-1), 10**sizes[i]) for i in range(nNumbers)]
         return " + ".join([str(n) for n in numbers]), sum(numbers) # task, result
+    
+class Mixed(Gamemode):
+    category = "Mixed"
+    title = "Mixed"
+    def makeTask():
+        category = random.choice(list(gamemodes.keys()))
+        gamemode = random.choice(gamemodes[category])
+        return gamemode.makeTask()
 
 # ==================== Gamemodes list ====================
 gamemodes = {
@@ -121,5 +129,8 @@ gamemodes = {
         FourDigitAddition,
         FiveDigitAddition,
         RandomizedAddition,
+    ],
+    "Mixed": [
+        Mixed,
     ],
 }
