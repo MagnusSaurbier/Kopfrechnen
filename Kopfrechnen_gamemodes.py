@@ -18,6 +18,8 @@ class Gamemode:
     def makeTask():
         return "task", 0 # task, result
 
+# ==================== Multiplication ====================
+
 class Multiplication(Gamemode):
     category = "Multiplication"
     title = "Multiplication"
@@ -63,6 +65,8 @@ class ThreeDigitSquaresWith5(Multiplication):
         a = 10 * random.randint(10, 99) + 5
         return str(a) + "²", a**2 # task, result
     
+# ==================== Addition ====================
+
 class Addition(Gamemode):
     category = "Addition"
     title = "Addition"
@@ -105,6 +109,8 @@ class RandomizedAddition(Addition):
         numbers = [random.randint(10**(sizes[i]-1), 10**sizes[i]) for i in range(nNumbers)]
         return " + ".join([str(n) for n in numbers]), sum(numbers) # task, result
     
+# ==================== Mixed ===========================
+
 class Mixed(Gamemode):
     category = "Mixed"
     title = "Mixed"
@@ -114,6 +120,7 @@ class Mixed(Gamemode):
         return gamemode.makeTask()
 
 # ==================== Gamemodes list ====================
+
 gamemodes = {
     "Multiplication": [
         TwoDigitSquares,
