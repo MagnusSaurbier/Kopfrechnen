@@ -2,10 +2,15 @@ import random
 
 # ==================== Gamemodes ====================
 # How to add a new gamemode?
-# 1. Create class, inherit from Gamemode
+# 1. Create class, inherit from Gamemode or subclass e.g. Multiplication
 # 2. Set title
 # 3. Implement makeTask() method: return String: task, int: result
 # 4. Add class to gamemodes list
+
+# How to add a new category?
+# 1. Create class, inherit from Gamemode
+# 2. Set category-title
+# 3. Add category as dictionary-item to gamemodes list just like "Multiplication"
 
 class Gamemode:
     category = "Gamemode"
