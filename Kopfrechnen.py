@@ -13,7 +13,7 @@ root.resizable(False, False)
 answered = False
 task = ""
 result = 0
-gamemode = gamemodes[0]
+gamemode = gamemodes["Multiplication"][0]
 
 
 Task = tk.Label(root, text="Task", font=("Arial", 40))
@@ -27,11 +27,12 @@ Next.pack(pady=20)
 
 Menu = tk.Menu(root)
 root.config(menu=Menu)
-TaskTypeMenu = tk.Menu(Menu)
-Menu.add_cascade(label="Task Type", menu=TaskTypeMenu)
-for g in gamemodes:
-    t = g.title
-    TaskTypeMenu.add_command(label=t, command=lambda g=g: setTaskType(g))
+for category in gamemodes:
+    categoryMenu = tk.Menu(Menu)
+    Menu.add_cascade(label=category, menu=categoryMenu)
+    for g in gamemodes[category]:
+        t = g.title
+        categoryMenu.add_command(label=t, command=lambda g=g: setTaskType(g))
     
 def setTaskType(g):
     global gamemode
