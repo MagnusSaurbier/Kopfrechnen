@@ -114,8 +114,11 @@ class RandomizedAddition(Addition):
 class Mixed(Gamemode):
     category = "Mixed"
     title = "Mixed"
+    def randomCategory():
+        categories = [c for c in gamemodes.keys() if c != "Mixed"]
+        return random.choice(categories)
     def makeTask():
-        category = random.choice(list(gamemodes.keys()))
+        category = Mixed.randomCategory()
         gamemode = random.choice(gamemodes[category])
         return gamemode.makeTask()
 
