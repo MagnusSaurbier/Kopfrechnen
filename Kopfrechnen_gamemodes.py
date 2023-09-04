@@ -1,4 +1,5 @@
 import random
+import math
 
 # ==================== Gamemodes ====================
 # How to add a new gamemode?
@@ -109,6 +110,27 @@ class RandomizedAddition(Addition):
         numbers = [random.randint(10**(sizes[i]-1), 10**sizes[i]) for i in range(nNumbers)]
         return " + ".join([str(n) for n in numbers]), sum(numbers) # task, result
     
+# ==================== Approximation ====================
+class Approximation(Gamemode):
+    category = "Approximation"
+    title = "Approximation"
+    def makeTask():
+        return "calculation exercise", 0 # task, result
+    
+class ApproxMult(Approximation):
+    title = "Approximate Multiplication"
+    def makeTask():
+        nNumbers = random.randint(2, 4)
+        sizes = [random.randint(1, 3) for i in range(nNumbers)]
+        numbers = [random.randint(10**(sizes[i]-1), 10**sizes[i]) for i in range(nNumbers)]
+        p = math.prod(numbers)
+        factor = random.random() + 0.5
+        comparison = int(p*factor)
+        if p <= comparison:
+            return (" * ".join([str(n) for n in numbers])) + ">" + str(comparison)+"?", 0 # task, result
+        else:
+            return (" * ".join([str(n) for n in numbers])) + ">" + str(comparison)+"?", 1 # task, result
+        
 # ==================== Mixed ===========================
 
 class Mixed(Gamemode):
@@ -142,5 +164,8 @@ gamemodes = {
     ],
     "Mixed": [
         Mixed,
+    ],
+    "Approximation": [
+        ApproxMult,
     ],
 }
